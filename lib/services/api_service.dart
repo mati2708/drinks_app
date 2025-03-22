@@ -5,7 +5,6 @@ import '../models/drink.dart';
 class ApiService {
   final String baseUrl = 'https://cocktails.solvro.pl/api/v1';
 
-  // Funkcja do pobierania listy drinków
   Future<List<Drink>> fetchDrinks() async {
     try {
       final response = await http.get(Uri.parse('$baseUrl/cocktails'));
@@ -27,7 +26,6 @@ class ApiService {
     }
   }
 
-  // Funkcja do pobierania szczegółów drinka
   Future<Drink> fetchDrinkDetails(String drinkId) async {
     try {
       final response = await http.get(Uri.parse('$baseUrl/cocktails/$drinkId'));
@@ -36,7 +34,6 @@ class ApiService {
         Map<String, dynamic> body = json.decode(response.body);
         Map<String, dynamic> data = body['data'];
 
-        // Tworzenie obiektu Drink z pełnymi szczegółami
         return Drink.fromJson(data);
       } else {
         throw Exception('Failed to load drink details');

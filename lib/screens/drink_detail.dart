@@ -74,7 +74,7 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
                       onPressed: () {
                         _toggleFavorite(
                           drinkDetails.id,
-                        ); // Zaktualizuj ulubiony status\
+                        ); 
                       },
                     ),
                   ],
@@ -141,7 +141,7 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Możesz dodać inne widgety tutaj, np. nagłówek lub obrazek
+                
                 for (var ingredient in ingredients)
                   Row(
                     children: [

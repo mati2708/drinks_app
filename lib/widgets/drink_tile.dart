@@ -20,21 +20,21 @@ class DrinkTile extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.all(8),
       leading: ClipRRect(
-        borderRadius: BorderRadius.circular(8), // Zaokrąglone rogi zdjęcia
+        borderRadius: BorderRadius.circular(8), 
         child: Image.network(
-          drink.imageUrl, // URL zdjęcia drinka
+          drink.imageUrl, 
           width: 50,
           fit: BoxFit.cover,
         ),
       ),
-      title: Text(drink.name), // Wyświetlanie nazwy drinka
+      title: Text(drink.name), 
       trailing: IconButton(
         icon: Icon(
-          isFavorite ? Icons.favorite : Icons.favorite_border, // Ikona serca
+          isFavorite ? Icons.favorite : Icons.favorite_border,
           color:
               isFavorite
                   ? Theme.of(context).colorScheme.secondary
-                  : null, // Kolor serca, jeśli jest ulubione
+                  : null, 
         ),
         onPressed: onFavoriteTap,
       ),

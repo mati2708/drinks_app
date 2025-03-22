@@ -13,12 +13,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // Flaga do zarządzania trybem, domyślnie jasny
   bool isDarkMode = false;
 
   void _toggleTheme() {
     setState(() {
-      isDarkMode = !isDarkMode; // Przełącz tryb
+      isDarkMode = !isDarkMode; 
     });
   }
 

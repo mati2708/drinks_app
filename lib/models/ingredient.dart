@@ -27,14 +27,14 @@ class Ingredient {
     return Ingredient(
       id: json['id'].toString(),
       name: json['name'],
-      description: json['description'] ?? "",  // Umożliwia domyślną wartość dla opisu
-      alcohol: json['alcohol'] ?? false,  // Domyślna wartość dla alkoholu
-      type: json['type'],  // Typ może być null
-      percentage: json['percentage'],  // Procent może być null
-      imageUrl: json['imageUrl'],  // URL zdjęcia może być null
-      createdAt: json['createdAt'] ?? "",  // Domyślna wartość dla daty stworzenia
-      updatedAt: json['updatedAt'] ?? "",  // Domyślna wartość dla daty aktualizacji
-      measure: json['measure'],  // Miarę także można traktować jako optional
+      description: json['description'] ?? "", 
+      alcohol: json['alcohol'] ?? false, 
+      type: json['type'],  
+      percentage: json['percentage'],  
+      imageUrl: json['imageUrl'],  
+      createdAt: json['createdAt'] ?? "", 
+      updatedAt: json['updatedAt'] ?? "", 
+      measure: json['measure'],  
     );
   }
 }
