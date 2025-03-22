@@ -1,16 +1,37 @@
-# drinks_app
+ Drinks App
 
-A new Flutter project.
+## Opis aplikacji
 
-## Getting Started
+Drinks App to aplikacja mobilna stworzona w Flutterze, która umożliwia użytkownikom przeglądanie, wyszukiwanie i oznaczanie drinków jako ulubione. Aplikacja korzysta z zewnętrznego API do pobierania przepisów koktajli i składników, co pozwala na dynamiczne wyświetlanie informacji.
 
-This project is a starting point for a Flutter application.
+## Funkcjonalności
 
-A few resources to get you started if this is your first Flutter project:
+- **Lista Drinków**: Użytkownicy mogą przeglądać pełną listę dostępnych drinków z obrazami i nazwami.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Wyszukiwanie**: Umożliwia wyszukiwanie drinków po nazwie, co pozwala na szybkie znajdowanie ulubionych pozycji.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Ulubione Drink**: Użytkownicy mogą oznaczać drinki jako ulubione, co pozwala na łatwiejszy dostęp do często wybieranych koktajli. Status ulubionych jest zapisywany w lokalnej pamięci urządzenia.
+
+- **Szczegóły Drinków**: Po kliknięciu w drink, użytkownik zostaje przekierowany do ekranu z szczegółowymi informacjami, takimi jak kategoria, rodzaj szkła, jego składniki i instrukcje przygotowania.
+
+- **Responsywność**: Aplikacja jest responsywna i dostosowuje się do różnych rozmiarów ekranów, w tym telefonów i tabletów.
+
+- **Obsługa Ciemnego Motywu**: Aplikacja obsługuje ciemny i jasny motyw, które można przełączać w ustawieniach.
+
+## Technologie
+
+- Flutter
+- Dart
+- API do drinków
+- Shared Preferences
+
+## Instalacja
+
+1. Sklonuj repozytorium.
+2. Uruchom `flutter pub get`, aby zainstalować wymagane pakiety.
+3. Uruchom aplikację używając `flutter run`.
+
+## Zrzuty ekranu
+
+![Jasny motyw](assets/screenshots/bright_theme.png)
+![Ciemny motyw](assets/screenshots/dark_theme.png)
