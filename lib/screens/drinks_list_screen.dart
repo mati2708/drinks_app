@@ -7,7 +7,7 @@ import '../services/api_service.dart';
 import '../models/drink.dart';
 
 class DrinksListScreen extends StatefulWidget {
-  final Function toggleTheme; 
+  final VoidCallback toggleTheme;
 
   DrinksListScreen({required this.toggleTheme});
 
@@ -18,8 +18,8 @@ class DrinksListScreen extends StatefulWidget {
 class _DrinksListScreenState extends State<DrinksListScreen> {
   late Future<List<Drink>> drinks;
   List<String> favoriteDrinkIds = [];
-  String searchQuery = ''; 
-  bool showFavorites = false; 
+  String searchQuery = '';
+  bool showFavorites = false;
   bool showSearch = false;
 
   @override
@@ -41,10 +41,8 @@ class _DrinksListScreenState extends State<DrinksListScreen> {
   }
 
   void _toggleFavorite(String drinkId) async {
-    await FavoritesService().toggleFavorite(
-      drinkId,
-    ); 
-    _loadFavorites(); 
+    await FavoritesService().toggleFavorite(drinkId);
+    _loadFavorites();
   }
 
   void _toggleShowFavorites() {
@@ -54,9 +52,7 @@ class _DrinksListScreenState extends State<DrinksListScreen> {
   }
 
   void toggleSearch() {
-    setState(() {
-      showSearch = !showSearch;
-    });
+    setState(() => showSearch = !showSearch);
   }
 
   void _handleDrinkTap(String drinkId) async {
@@ -67,7 +63,7 @@ class _DrinksListScreenState extends State<DrinksListScreen> {
       ),
     );
 
-    _loadFavorites(); 
+    _loadFavorites();
   }
 
   @override
@@ -81,9 +77,8 @@ class _DrinksListScreenState extends State<DrinksListScreen> {
             fontWeight: FontWeight.w700,
             fontSize: 25,
           ),
-        ), 
-        backgroundColor:
-            Theme.of(context).colorScheme.primaryContainer, 
+        ),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         actions: [
           IconButton(
             icon: Icon(
@@ -91,25 +86,14 @@ class _DrinksListScreenState extends State<DrinksListScreen> {
             ), // Ikona serca
             onPressed: _toggleShowFavorites,
           ),
-          IconButton(
-            icon: Icon(Icons.contrast),
-            onPressed: () {
-              widget.toggleTheme();
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.search), 
-            onPressed: () {
-              toggleSearch();
-            },
-          ),
+          IconButton(icon: Icon(Icons.contrast), onPressed: widget.toggleTheme),
+          IconButton(icon: Icon(Icons.search), onPressed: toggleSearch),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            
             if (showSearch)
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -123,14 +107,12 @@ class _DrinksListScreenState extends State<DrinksListScreen> {
                   ),
                   onChanged: (value) {
                     setState(() {
-                      searchQuery =
-                          value
-                              .toLowerCase(); 
+                      searchQuery = value.toLowerCase();
                     });
                   },
                 ),
               ),
-            
+
             Expanded(
               child: FutureBuilder<List<Drink>>(
                 future: drinks,
@@ -145,7 +127,6 @@ class _DrinksListScreenState extends State<DrinksListScreen> {
                     return Center(child: Text('Brak dostępnych drinków.'));
                   }
 
-                  
                   final filteredDrinks =
                       (showFavorites
                               ? snapshot.data!
@@ -161,14 +142,11 @@ class _DrinksListScreenState extends State<DrinksListScreen> {
                           )
                           .toList();
 
-                  
                   return ListView.builder(
                     itemCount: filteredDrinks.length,
                     itemBuilder: (context, index) {
                       final drink = filteredDrinks[index];
-                      final isFavorite = favoriteDrinkIds.contains(
-                        drink.id,
-                      ); 
+                      final isFavorite = favoriteDrinkIds.contains(drink.id);
 
                       return DrinkTile(
                         drink: drink,

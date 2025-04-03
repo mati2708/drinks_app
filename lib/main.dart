@@ -17,10 +17,9 @@ class _MyAppState extends State<MyApp> {
 
   void _toggleTheme() {
     setState(() {
-      isDarkMode = !isDarkMode; 
+      isDarkMode = !isDarkMode;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +27,11 @@ class _MyAppState extends State<MyApp> {
       title: 'Koktajle App',
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
-        colorScheme: lightColorScheme
+        colorScheme: lightColorScheme,
       ),
       darkTheme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
-        colorScheme: darkColorScheme
+        colorScheme: darkColorScheme,
       ),
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: DrinksListScreen(toggleTheme: _toggleTheme),

@@ -10,7 +10,7 @@ class Drink {
   final bool alcoholic;
   final String createdAt;
   final String updatedAt;
-  final List<Ingredient> ingredients; 
+  final List<Ingredient> ingredients;
 
   Drink({
     required this.id,
@@ -22,26 +22,25 @@ class Drink {
     required this.alcoholic,
     required this.createdAt,
     required this.updatedAt,
-    required this.ingredients, 
+    required this.ingredients,
   });
 
   factory Drink.fromJson(Map<String, dynamic> json) {
-
-  var list = json['ingredients'] as List?; 
-    List<Ingredient> ingredientsList = (list ?? []).map((i) => Ingredient.fromJson(i)).toList(); 
-
+    var list = json['ingredients'] as List?;
+    List<Ingredient> ingredientsList =
+        (list ?? []).map((i) => Ingredient.fromJson(i)).toList();
 
     return Drink(
       id: json['id'].toString(),
-      name: json['name'] ?? 'Brak nazwy', 
-      imageUrl: json['imageUrl'], 
-      category: json['category'] ?? 'Brak kategorii', 
+      name: json['name'] ?? 'Brak nazwy',
+      imageUrl: json['imageUrl'],
+      category: json['category'] ?? 'Brak kategorii',
       glass: json['glass'],
-      instructions: json['instructions'] ?? 'Brak instrukcji', 
-      alcoholic: json['alcoholic'] ?? false, 
-      createdAt: json['createdAt'] ?? '', 
-      updatedAt: json['updatedAt'] ?? '', 
-      ingredients: ingredientsList, 
+      instructions: json['instructions'] ?? 'Brak instrukcji',
+      alcoholic: json['alcoholic'] ?? false,
+      createdAt: json['createdAt'] ?? '',
+      updatedAt: json['updatedAt'] ?? '',
+      ingredients: ingredientsList,
     );
   }
 }

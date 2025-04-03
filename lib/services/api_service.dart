@@ -13,9 +13,8 @@ class ApiService {
         Map<String, dynamic> body = json.decode(response.body);
         List<dynamic> drinksList = body['data'];
 
-        List<Drink> drinks = drinksList
-          .map((dynamic value) => Drink.fromJson(value))
-          .toList();
+        List<Drink> drinks =
+            drinksList.map((dynamic value) => Drink.fromJson(value)).toList();
 
         return drinks;
       } else {

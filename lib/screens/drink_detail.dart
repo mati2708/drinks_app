@@ -7,10 +7,10 @@ import '../services/api_service.dart';
 class DrinkDetailScreen extends StatefulWidget {
   final String drinkId;
 
-  DrinkDetailScreen({required this.drinkId});
+  const DrinkDetailScreen({required this.drinkId, super.key});
 
   @override
-  _DrinkDetailScreenState createState() => _DrinkDetailScreenState();
+  State<DrinkDetailScreen> createState() => _DrinkDetailScreenState();
 }
 
 class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
@@ -69,12 +69,13 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
                     IconButton(
                       icon: Icon(
                         isFavorite ? Icons.favorite : Icons.favorite_border,
-                        color: isFavorite ? Theme.of(context).colorScheme.secondary : null,
+                        color:
+                            isFavorite
+                                ? Theme.of(context).colorScheme.secondary
+                                : null,
                       ),
                       onPressed: () {
-                        _toggleFavorite(
-                          drinkDetails.id,
-                        ); 
+                        _toggleFavorite(drinkDetails.id);
                       },
                     ),
                   ],
@@ -94,7 +95,11 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
       children: [
         Container(
           padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-          child: Icon(Icons.local_bar, color: Theme.of(context).colorScheme.primaryContainer, size: 18),
+          child: Icon(
+            Icons.local_bar,
+            color: Theme.of(context).colorScheme.primaryContainer,
+            size: 18,
+          ),
         ),
         SizedBox(width: 8),
         Column(
@@ -123,7 +128,11 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
       children: [
         Container(
           padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-          child: Icon(Icons.checklist, color: Theme.of(context).colorScheme.primaryContainer, size: 18),
+          child: Icon(
+            Icons.checklist,
+            color: Theme.of(context).colorScheme.primaryContainer,
+            size: 18,
+          ),
         ),
         SizedBox(width: 8),
         Column(
@@ -141,7 +150,6 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
                 for (var ingredient in ingredients)
                   Row(
                     children: [
@@ -176,7 +184,11 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
       children: [
         Container(
           padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-          child: Icon(Icons.list, color: Theme.of(context).colorScheme.primaryContainer, size: 18),
+          child: Icon(
+            Icons.list,
+            color: Theme.of(context).colorScheme.primaryContainer,
+            size: 18,
+          ),
         ),
         SizedBox(width: 8),
         Expanded(

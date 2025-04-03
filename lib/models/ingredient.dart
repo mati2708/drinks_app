@@ -27,14 +27,14 @@ class Ingredient {
     return Ingredient(
       id: json['id'].toString(),
       name: json['name'],
-      description: json['description'] ?? "", 
-      alcohol: json['alcohol'] ?? false, 
-      type: json['type'],  
-      percentage: json['percentage'],  
-      imageUrl: json['imageUrl'],  
-      createdAt: json['createdAt'] ?? "", 
-      updatedAt: json['updatedAt'] ?? "", 
-      measure: json['measure'],  
+      description: json['description'] ?? "",
+      alcohol: json['alcohol'] ?? false,
+      type: json['type'],
+      percentage: json['percentage'],
+      imageUrl: json['imageUrl'],
+      createdAt: json['createdAt'] ?? "",
+      updatedAt: json['updatedAt'] ?? "",
+      measure: json['measure'],
     );
   }
 }
